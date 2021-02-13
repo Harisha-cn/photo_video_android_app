@@ -1,0 +1,34 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.android.myapplication.movies.ui.detail.fragments.VideoFragmentViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_casts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:castAdapterListVideo="@{viewModel.movieDetails}"
+            app:viewListeners="@{viewModel.videoItemListener}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <ProgressBar
+            android:id="@+id/detail_progress_bar"
+            app:detailProgressBarVisibilityVideo="@{viewModel.movieDetails}"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+
+    </FrameLayout>
+</layout>
